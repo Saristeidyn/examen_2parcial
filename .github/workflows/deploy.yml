@@ -9,5 +9,14 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     steps:
-      - name: Hola mundo
-        run: echo "Hola mundo"
+      - name: Clone repository
+        run: actions/checkout@v4
+
+      - name: Login to DockerHub
+        run: docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
+
+      - name: Build Docker Image
+        run: docker build -t saraymartinez002/examen_2parcial:v1 .
+
+      - name: Push Docker Image 
+        run: docker push saraymartinez002/examen_2parcial:v1
