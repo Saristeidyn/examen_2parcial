@@ -3,4 +3,11 @@ nmae: Docker Build & Publish
 on: 
   push:
     branches:
-      - main
+      - master
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hola mundo
+        run: exho "Hola mundo"
