@@ -1,6 +1,6 @@
 name: Docker Build & Publish
 
-on: 
+on:
   push:
     branches:
       - master
@@ -10,13 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
-        run: actions/checkout@v4
+        uses: actions/checkout@v4
 
-      - name: Login to DockerHub
+      - name: Login to Docker Hub
         run: docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
 
       - name: Build Docker Image
         run: docker build -t saraymartinez002/examen_2parcial:v1 .
 
-      - name: Push Docker Image 
-        run: docker push saraymartinez002/examen_2parcial:v1
+      - name: Tag Latest
+        run: docker tag saraymartinez002/examen_2parcial:${{ github.sha }} saraymartinez002/examen_2parcial:latest
+
+      - name: Push Docker Image
+        run: | 
+          docker push saraymartinez002/examen_2parcial::${{ github.sha}}
+          docker saraymartinez002/examen_2parcial:latest
