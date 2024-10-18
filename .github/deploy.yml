@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Hola mundo
-        run: exho "Hola mundo"
+        run: echo "Hola mundo"
