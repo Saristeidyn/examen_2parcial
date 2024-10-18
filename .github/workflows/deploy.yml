@@ -24,4 +24,4 @@ jobs:
       - name: Push Docker Image
         run: | 
           docker push saraymartinez002/examen_2parcial:${{ github.sha}}
-          docker saraymartinez002/examen_2parcial:latest
+          docker push saraymartinez002/examen_2parcial:latest
