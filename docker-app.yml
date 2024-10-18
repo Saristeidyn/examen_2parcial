@@ -1,0 +1,13 @@
+services:
+  mysql:
+    image: mysql
+    container_name: mysql_container #canage for specific exam 
+    ports:
+      - "3306:3306" # i dont understand
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+    volumes:
+      - mysqlExam_2P:/var/lib/mysql
+
+volumes:
+  mysqlExam_2P:
