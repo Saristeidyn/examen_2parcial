@@ -16,10 +16,10 @@ jobs:
         run: docker login -u "${{ secrets.DOCKER_USERNAME}}" -p "${{ secrets.DOCKER_PASSWORD }}"
 
       - name: Build Docker Image
-        run: docker build -t saraymartinez002/examen_2parcial:v1 .
+        run: docker build -t saraymartinez002/examen_2parcial:${{github.sha}} .
 
       - name: Tag Latest
-        run: docker tag saraymartinez002/examen_2parcial:v1${{ github.sha }} saraymartinez002/examen_2parcial:latest
+        run: docker tag saraymartinez002/examen_2parcial:${{ github.sha }} saraymartinez002/examen_2parcial:latest
 
       - name: Push Docker Image
         run: | 
