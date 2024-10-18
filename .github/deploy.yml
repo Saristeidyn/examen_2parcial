@@ -1,0 +1,6 @@
+nmae: Docker Build & Publish
+
+on: 
+  push:
+    branches:
+      - main
